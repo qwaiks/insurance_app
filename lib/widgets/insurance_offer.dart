@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insurance_app/widgets/custom_button.dart';
 
 class InsuranceOffer extends StatelessWidget {
   final String title;
@@ -12,9 +13,15 @@ class InsuranceOffer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final helpButton = SizedBox();
+    const helpButton = CustomButton(
+      title: 'Need help?',
+      backgroundColor: Colors.white,
+      textColor: Colors.black,
+    );
 
-    final personalizeButton = SizedBox();
+    const personalizeButton = CustomButton(
+      title: 'Personalize',
+    );
 
     final titleWidget = Text(
       title,
