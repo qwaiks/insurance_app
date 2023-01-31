@@ -5,14 +5,17 @@ class CustomIconButton extends StatelessWidget {
   final double elevation;
   final Alignment alignment;
   final IconData icon;
+  final Color backgroundColor;
+  final Color iconColor;
 
-  const CustomIconButton({
-    super.key,
-    this.onTap,
-    this.elevation = 0.0,
-    this.icon = Icons.chevron_left_rounded,
-    this.alignment = Alignment.centerLeft,
-  });
+  const CustomIconButton(
+      {super.key,
+      this.onTap,
+      this.elevation = 0.0,
+      this.icon = Icons.chevron_left_rounded,
+      this.alignment = Alignment.centerLeft,
+      this.iconColor = Colors.black,
+      this.backgroundColor = Colors.grey});
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +27,12 @@ class CustomIconButton extends StatelessWidget {
           padding: EdgeInsets.zero,
           fixedSize: const Size.square(44),
           shape: const CircleBorder(),
-          backgroundColor: Colors.grey,
+          backgroundColor: backgroundColor,
           elevation: elevation,
         ),
-        child: const Icon(
+        child: Icon(
           Icons.chevron_left_rounded,
-          color: Colors.black,
+          color: iconColor,
           size: 30,
         ),
       ),
