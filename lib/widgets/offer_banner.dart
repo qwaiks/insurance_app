@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insurance_app/config/theme.dart';
 
 class OfferBanner extends StatelessWidget {
   final String title;
@@ -20,17 +21,17 @@ class OfferBanner extends StatelessWidget {
 
     final monthWidget = Text.rich(
       TextSpan(
-        text: '$pricePerMonth ',
+        text: '$pricePerMonth',
         children: const [
-          TextSpan(text: 'per month'),
+          TextSpan(text: ' per month'),
         ],
       ),
     );
     final yearWidget = Text.rich(
       TextSpan(
-        text: '$pricePerYear ',
-        children: const [
-          TextSpan(text: 'per month'),
+        text: '$pricePerYear',
+        children: const  [
+          TextSpan(text: ' per month',style:  AppTextThemes.caption),
         ],
       ),
     );
