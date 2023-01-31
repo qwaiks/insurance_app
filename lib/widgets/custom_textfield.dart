@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class CustomTextField extends StatefulWidget {
   final String? title;
@@ -8,7 +7,6 @@ class CustomTextField extends StatefulWidget {
   final TextInputType keyboardType;
   final TextEditingController? controller;
   final bool enabled;
-  final List<TextInputFormatter>? inputFormatters;
   final String Function(String?)? validator;
   final Function(String)? onChanged;
   final Color? borderColor;
@@ -21,7 +19,6 @@ class CustomTextField extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.controller,
     this.enabled = true,
-    this.inputFormatters,
     this.validator,
     this.onChanged,
     this.borderColor,
@@ -67,7 +64,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
           cursorColor: Theme.of(context).primaryColor,
           controller: widget.controller,
           enabled: widget.enabled,
-          inputFormatters: widget.inputFormatters,
           onChanged: widget.onChanged,
         ),
       ],
