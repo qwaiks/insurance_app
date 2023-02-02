@@ -5,7 +5,7 @@ class CustomIconButton extends StatelessWidget {
   final double elevation;
   final Alignment alignment;
   final IconData icon;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final Color iconColor;
 
   const CustomIconButton(
@@ -15,7 +15,7 @@ class CustomIconButton extends StatelessWidget {
       this.icon = Icons.chevron_left_rounded,
       this.alignment = Alignment.centerLeft,
       this.iconColor = Colors.black,
-      this.backgroundColor = Colors.grey});
+      this.backgroundColor});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class CustomIconButton extends StatelessWidget {
           padding: EdgeInsets.zero,
           fixedSize: const Size.square(44),
           shape: const CircleBorder(),
-          backgroundColor: backgroundColor,
+          backgroundColor: backgroundColor ?? Colors.grey.shade200,
           elevation: elevation,
         ),
         child: Icon(

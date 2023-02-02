@@ -6,10 +6,12 @@ class CustomButton extends StatelessWidget {
   final void Function()? onTap;
   final Color backgroundColor;
   final Color textColor;
-  
+  final bool fullWidth;
+
   const CustomButton({
     super.key,
     required this.title,
+    this.fullWidth = false,
     this.onTap,
     this.backgroundColor = AppColors.primary,
     this.textColor = Colors.white,
@@ -19,17 +21,19 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
+        minimumSize: fullWidth ? const Size(double.infinity, 50) : null,
         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
         backgroundColor: backgroundColor,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(40),
         ),
       ),
       onPressed: onTap,
       child: Text(
         title,
-        style: TextStyle(fontSize: 24, color: textColor),
+        style: TextStyle(
+            fontWeight: FontWeight.w700, fontSize: 16, color: textColor),
       ),
     );
   }
