@@ -7,6 +7,7 @@ class CustomIconButton extends StatelessWidget {
   final IconData icon;
   final Color? backgroundColor;
   final Color iconColor;
+  final double iconSize;
 
   const CustomIconButton(
       {super.key,
@@ -15,6 +16,7 @@ class CustomIconButton extends StatelessWidget {
       this.icon = Icons.chevron_left_rounded,
       this.alignment = Alignment.centerLeft,
       this.iconColor = Colors.black,
+      this.iconSize = 30,
       this.backgroundColor});
 
   @override
@@ -31,9 +33,9 @@ class CustomIconButton extends StatelessWidget {
           elevation: elevation,
         ),
         child: Icon(
-          Icons.chevron_left_rounded,
+          icon,
           color: iconColor,
-          size: 30,
+          size: iconSize,
         ),
       ),
     );

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:insurance_app/config/colors.dart';
 import 'package:insurance_app/config/theme.dart';
+import 'package:insurance_app/views/car_quote/pages/insurance_claims.dart';
+import 'package:insurance_app/views/car_quote/pages/insurance_type.dart';
 import 'package:insurance_app/views/car_quote/pages/search_car.dart';
+import 'package:insurance_app/views/car_quote/pages/user_birthday.dart';
+import 'package:insurance_app/views/car_quote/pages/user_license_date.dart';
 import 'package:insurance_app/views/car_quote/pages/vehicle_use.dart';
 import 'package:insurance_app/widgets/custom_button.dart';
 import 'package:insurance_app/widgets/custom_dropdown.dart';
@@ -31,9 +35,13 @@ class CarQuoteScreen extends StatelessWidget {
       ],
     );
 
-    final pages = [
+    const pages = [
       SearchCarPage(),
       VehichleUsePage(),
+      UserLicenseDatePage(),
+      UserBirthdayPage(),
+      InsuranceClaimPage(),
+      InsuranceTypePage()
     ];
 
     return Scaffold(
@@ -49,11 +57,11 @@ class CarQuoteScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            LinearProgressIndicator(),
+            const LinearProgressIndicator(),
             const SizedBox(
               height: 20,
             ),
-            pages[1],
+            pages[5],
             const Spacer(),
             actions,
             const SizedBox(
