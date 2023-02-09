@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insurance_app/config/theme.dart';
 import 'package:insurance_app/widgets/custom_button.dart';
 
 class InsuranceOffer extends StatelessWidget {
@@ -13,46 +14,61 @@ class InsuranceOffer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const helpButton = CustomButton(
+    final helpButton = CustomButton(
       title: 'Need help?',
       backgroundColor: Colors.white,
       textColor: Colors.black,
+      onTap: () {},
     );
 
-    const personalizeButton = CustomButton(
+    final personalizeButton = CustomButton(
       title: 'Personalize',
+      onTap: () {},
     );
 
     final titleWidget = Text(
       title,
+      style: AppTextThemes.h3,
     );
 
     final contentWidget = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          height: 10,
-          width: 10,
-          decoration: BoxDecoration(
-              color: Colors.red, borderRadius: BorderRadius.circular(30)),
+        Row(
+          children: [
+            Container(
+              height: 15,
+              width: 15,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+            const SizedBox(
+              width: 25,
+            ),
+            Text(
+              content,
+              style: AppTextThemes.title,
+            ),
+          ],
         ),
         const SizedBox(
           width: 16,
         ),
-        Flexible(
-          child: Text(content),
-        ),
-        const SizedBox(
-          width: 16,
-        ),
-        Text(price)
+        Text(
+          price,
+          style: AppTextThemes.title,
+        )
       ],
     );
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-      decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(13)),
-          color: Colors.grey),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(13)),
+          color: Colors.grey.shade200),
       child: Column(
         children: [
           titleWidget,
@@ -60,9 +76,15 @@ class InsuranceOffer extends StatelessWidget {
             height: 20,
           ),
           contentWidget,
+          const SizedBox(
+            height: 20,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [helpButton, personalizeButton],
+            children: [
+              helpButton,
+              personalizeButton,
+            ],
           )
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomIconButton extends StatelessWidget {
   final void Function()? onTap;
@@ -8,11 +9,15 @@ class CustomIconButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color iconColor;
   final double iconSize;
+  final bool isSvg;
+  final String? svgIcon;
 
   const CustomIconButton(
       {super.key,
       this.onTap,
       this.elevation = 0.0,
+      this.isSvg = false,
+      this.svgIcon,
       this.icon = Icons.chevron_left_rounded,
       this.alignment = Alignment.centerLeft,
       this.iconColor = Colors.black,
@@ -32,11 +37,17 @@ class CustomIconButton extends StatelessWidget {
           backgroundColor: backgroundColor ?? Colors.grey.shade200,
           elevation: elevation,
         ),
-        child: Icon(
-          icon,
-          color: iconColor,
-          size: iconSize,
-        ),
+        child: isSvg
+            ? SvgPicture.asset(
+                svgIcon!,
+                width: iconSize,
+                color: iconColor,
+              )
+            : Icon(
+                icon,
+                color: iconColor,
+                size: iconSize,
+              ),
       ),
     );
   }

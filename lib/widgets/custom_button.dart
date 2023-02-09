@@ -22,8 +22,11 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         minimumSize: fullWidth ? const Size(double.infinity, 50) : null,
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+        padding: fullWidth
+            ? const EdgeInsets.symmetric(horizontal: 50, vertical: 10)
+            : const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         backgroundColor: backgroundColor,
+        disabledBackgroundColor: Colors.grey.shade100,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40),
@@ -33,7 +36,9 @@ class CustomButton extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-            fontWeight: FontWeight.w700, fontSize: 16, color: textColor),
+            fontWeight: FontWeight.w700,
+            fontSize: 16,
+            color: (onTap != null) ? textColor : Colors.black.withOpacity(0.1)),
       ),
     );
   }

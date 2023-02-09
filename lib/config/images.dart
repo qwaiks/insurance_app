@@ -13,4 +13,5 @@ class AppImages {
   static const cake = 'assets/images/cake.png';
 
   static const stopwatch = 'assets/images/stopwatch.png';
+  static const questionMark = 'assets/images/question_mark.svg';
 }

@@ -40,7 +40,7 @@ class StarterScreen extends StatelessWidget {
       child: CustomButton(
         title: 'Next',
         fullWidth: true,
-        onTap: () => Navigator.pushNamed(context, AppRoutes.qouteScreen),
+        onTap: () => Navigator.pushNamed(context, AppRoutes.claimOfferScreen),
       ),
     );
 
